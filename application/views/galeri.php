@@ -11,7 +11,7 @@
                         <article class="mb-5">
                             <div class="post-slider slider-sm">
                                 <a href="<?= base_url('assets/upload/galeri/' . $ten['foto']); ?>" class="fancybox" data-fancybox="gallery">
-                                    <img src="<?= base_url('assets/upload/galeri/' . $ten['foto']); ?>" width="50%" class="img-fluid" alt="post-thumb">
+                                    <img src="<?= base_url('assets/upload/galeri/' . $ten['foto']); ?>" class="img-fluid" alt="post-thumb">
                                 </a>
                             </div>
                             <h3 class="h5 post-title"><?= word_limiter($ten['judul'], 5);  ?>.</h3>
