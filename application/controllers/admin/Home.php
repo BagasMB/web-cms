@@ -15,6 +15,11 @@ class Home extends CI_Controller
     {
         $data = [
             'title' => 'Dashboard',
+            'konten' => $this->db->get('konten')->num_rows(),
+            'usere' => $this->db->get('user')->num_rows(),
+            'saran' => $this->db->get('saran')->num_rows(),
+            'galeri' => $this->db->get('galeri')->num_rows(),
+            'kategori' => $this->db->get('kategori')->result_array(),
             'user' => $this->db->get_where('user', ['username' => $this->session->userdata('username')])->row_array(),
         ];
         $this->load->view('admin/layout/_header', $data);
