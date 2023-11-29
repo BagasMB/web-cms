@@ -44,9 +44,9 @@
     <div class="container d-flex align-items-center justify-content-center" style="min-height: 100vh">
         <div class="d-flex flex-column justify-content-between">
             <div class="row justify-content-center">
-                <div class="col-lg-8 col-md-10">
+                <div class="col-lg-9 col-md-10">
                     <div class="card card-default mb-0">
-                        <div class="card-header pb-0">
+                        <div class="card-header pb-0 mb-2">
                             <div class="app-brand w-100 d-flex justify-content-center border-bottom-0">
                                 <a class="w-auto pl-0" href="<?= base_url('home') ?>">
                                     <img src="<?= base_url('assets/mono/'); ?>images/smk.png" alt="Mono" width="50">
@@ -55,28 +55,23 @@
                             </div>
                         </div>
                         <div class="card-body px-5 pb-5 pt-0">
-
-                            <h5 class="text-dark mb-6 text-center">Masukan Username dan Password</h5>
+                            <h5 class="text-dark mb-2 text-center">Reset Your Password</h5>
                             <div id="ngilang">
                                 <?= $this->session->flashdata('message'); ?>
                             </div>
-                            <form action="<?= base_url('admin/auth'); ?>" method="post">
+                            <form action="<?= base_url('admin/auth/forgotPassword'); ?>" method="post">
                                 <div class="row">
-                                    <div class="form-group col-md-12 mb-4">
-                                        <input type="text" class="form-control input-lg" id="username" placeholder="Username" value="<?= set_value('username') ?>" name="username" autocomplete="off">
-                                        <?= form_error('username', '<small class="text-danger pl-3">', '</small>'); ?>
-                                    </div>
-                                    <div class="form-group col-md-12 ">
-                                        <input type="password" class="form-control input-lg" id="password" placeholder="Password" name="password" autocomplete="off">
-                                        <?= form_error('password', '<small class="text-danger pl-3">', '</small>'); ?>
+                                    <div class="form-group col-12 mb-4">
+                                        <input type="text" class="form-control input-lg" id="email" placeholder="Email" value="<?= set_value('email') ?>" name="email" autocomplete="off">
+                                        <?= form_error('email', '<small class="text-danger pl-3">', '</small>'); ?>
                                     </div>
                                     <div class="col-md-12">
-                                        <!-- <div class="d-flex justify-content-end">
-                                            <a class="text-color mb-3" href="<?= base_url('admin/auth/forgotPassword'); ?>"> Forgot password? </a>
-                                        </div> -->
                                         <div class="d-flex justify-content-center mb-3">
-                                            <button type="submit" class="btn btn-info btn-pill mb-2">Login</button>
+                                            <button type="submit" class="btn btn-info btn-pill mb-2">Reset Password</button>
                                         </div>
+                                        <p>Sudah memiliki akun?
+                                            <a class="text-blue" href="<?= base_url('admin/auth') ?>">Kembali Ke Login</a>
+                                        </p>
                                     </div>
                                 </div>
                             </form>

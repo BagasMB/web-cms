@@ -126,6 +126,10 @@
                             <input type="password" class="form-control" placeholder="&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;" name="password" autocomplete="off">
                         </div>
                         <div class="form-group">
+                            <label class="form-label">Email</label>
+                            <input type="email" class="form-control" placeholder="Email" name="email" autocomplete="off">
+                        </div>
+                        <div class="form-group">
                             <label class="form-label">Level User</label>
                             <select class="form-control" name="level">
                                 <option value="Admin">Admin</option>

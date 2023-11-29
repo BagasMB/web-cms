@@ -11,7 +11,7 @@
                 <div class="col-12">
                     <div class="card card-default">
                         <div class="card-header">
-                            <h5>Table User</h5>
+                            <h5>Table Kategori Konten</h5>
                             <!-- Form Modal -->
                             <button type="button" class="btn btn-sm btn-info btn-pill" data-toggle="modal" data-target="#ModalTambah">Tambah</button>
                         </div>

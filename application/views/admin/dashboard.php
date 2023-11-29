@@ -3,46 +3,62 @@
         ===================================== -->
     <div class="content-wrapper">
         <div class="content">
-            <!-- Top Statistics -->
             <div class="row">
-                <div class="col-xl-3 col-sm-6">
+                <!-- Frist box -->
+                <div class="col-xl-3 col-md-6">
                     <div class="card card-default">
-                        <div class="card-header">
-                            <div class="d-flex justify-content-between">
-                                <h2>Konten</h2>
+                        <div class="d-flex p-5 justify-content-between">
+                            <div class="icon-md bg-secondary rounded-circle mr-3">
+                                <i class="mdi mdi-youtube-tv"></i>
                             </div>
-                            <div class="sub-title">
-                                <h1 class="mx-1"><?= $konten; ?></h1>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-xl-3 col-sm-6">
-                    <div class="card card-default">
-                        <div class="card-header">
-                            <h2>Galeri</h2>
-                            <div class="sub-title">
-                                <h1 class="mx-1"><?= $galeri; ?></h1>
+                            <div class="text-right">
+                                <span class="h2 d-block"><?= $konten; ?></span>
+                                <p>Konten</p>
                             </div>
                         </div>
                     </div>
                 </div>
-                <div class="col-xl-3 col-sm-6">
+
+                <!-- Second box -->
+                <div class="col-xl-3 col-md-6">
                     <div class="card card-default">
-                        <div class="card-header">
-                            <h2>User</h2>
-                            <div class="sub-title">
-                                <h1 class="mx-1"><?= $usere; ?></h1>
+                        <div class="d-flex p-5 justify-content-between">
+                            <div class="icon-md bg-success rounded-circle mr-3">
+                                <i class="mdi mdi-image-multiple"></i>
+                            </div>
+                            <div class="text-right">
+                                <span class="h2 d-block"><?= $galeri; ?></span>
+                                <p>Galeri</p>
                             </div>
                         </div>
                     </div>
                 </div>
-                <div class="col-xl-3 col-sm-6">
+
+                <!-- Third box -->
+                <div class="col-xl-3 col-md-6">
                     <div class="card card-default">
-                        <div class="card-header">
-                            <h2>Saran</h2>
-                            <div class="sub-title">
-                                <h1 class="mx-1"><?= $saran; ?></h1>
+                        <div class="d-flex p-5 justify-content-between">
+                            <div class="icon-md bg-primary rounded-circle mr-3">
+                                <i class="mdi mdi-message"></i>
+                            </div>
+                            <div class="text-right">
+                                <span class="h2 d-block"><?= $saran; ?></span>
+                                <p>Saran</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Fourth box -->
+                <div class="col-xl-3 col-md-6">
+                    <div class="card card-default">
+                        <div class="d-flex p-5 justify-content-between">
+                            <div class="icon-md bg-info rounded-circle mr-3">
+                                <i class="mdi mdi-account-group"></i>
+                            </div>
+                            <div class="text-right">
+                                <span class="h2 d-block"><?= $usere; ?></span>
+                                <p>User</p>
                             </div>
                         </div>
                     </div>
@@ -65,16 +81,16 @@
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <?php foreach ($kategori as  $value) : ?>
+                                    <?php foreach ($jumlah_konten as  $value) : ?>
                                         <tr>
-                                            <td class="text-dark font-weight-bold"><?= $value['nama_kategori']?></td>
-                                            <td class="text-right"></td>
+                                            <td class="text-dark font-weight-bold"><?= $value->nama_kategori; ?></td>
+                                            <td class="text-right"><?= $value->jumlah_konten; ?></td>
                                         </tr>
                                     <?php endforeach; ?>
                                 </tbody>
                                 <tfoot class="border-top">
                                     <tr>
-                                        <td><a href="<?= base_url('admin/kategori');?>" class="text-uppercase">See All</a></td>
+                                        <td><a href="<?= base_url('admin/kategori'); ?>" class="text-uppercase">See All</a></td>
                                     </tr>
                                 </tfoot>
                             </table>

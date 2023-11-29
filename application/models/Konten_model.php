@@ -36,11 +36,9 @@ class Konten_model extends CI_Model
             $this->db->like('judul', $keyword);
             $this->db->or_like('keterangan', $keyword);
         }
-        // $this->db->from('konten');
         $this->db->join('kategori', 'konten.id_kategori = kategori.id_kategori');
         $this->db->join('user', 'konten.username = user.username');
         $this->db->order_by('tanggal DESC');
-        // $this->db->limit(5);
         return $this->db->get('konten', $limit, $start, $keyword)->result_array();
     }
 

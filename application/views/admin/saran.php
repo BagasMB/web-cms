@@ -10,7 +10,7 @@
                 <div class="col-12">
                     <div class="card card-default">
                         <div class="card-header">
-                            <h5>Table User</h5>
+                            <h5>Table Saran</h5>
                         </div>
                         <div class="card-body table-responsive">
                             <!-- productsTable table-hover table-product-->

@@ -21,6 +21,7 @@ class Home extends CI_Controller
             'galeri' => $this->db->get('galeri')->num_rows(),
             'kategori' => $this->db->get('kategori')->result_array(),
             'user' => $this->db->get_where('user', ['username' => $this->session->userdata('username')])->row_array(),
+            'jumlah_konten' => $this->db->select('k.nama_kategori, k.id_kategori, COUNT(c.id_konten) AS jumlah_konten')->from('kategori k')->join('konten c', 'k.id_kategori = c.id_kategori', 'left')->group_by('k.nama_kategori, k.id_kategori')->get()->result(),
         ];
         $this->load->view('admin/layout/_header', $data);
         $this->load->view('admin/layout/_sidebar', $data);

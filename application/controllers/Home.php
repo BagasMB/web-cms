@@ -27,12 +27,11 @@ class Home extends CI_Controller
         $this->db->like('judul', $data['search']);
         $this->db->from('konten');
         $config['total_rows'] = $this->db->count_all_results();
-        $config['per_page'] = 4;
+        $config['per_page'] = 5;
 
         $this->pagination->initialize($config);
-
         $data['start'] = $this->uri->segment(3);
-        $total_konten = $this->db->get('konten')->num_rows();
+        
         $data = [
             'title' => 'Homepage',
             'kategori' => $this->Kategori_model->getAllKategori(),
@@ -40,7 +39,8 @@ class Home extends CI_Controller
             'konten2' => $this->Konten_model->getAllKontenview(),
             'caraousel' => $this->Caraousel_model->getAllCaraousel(),
             'konfig' => $this->db->get('konfigurasi')->row(),
-            'Agama' => $total_konten,
+            'yangdicari' => $this->input->post('search'),
+            'jumlah_konten' => $this->db->select('k.nama_kategori, k.id_kategori, COUNT(c.id_konten) AS jumlah_konten')->from('kategori k')->join('konten c', 'k.id_kategori = c.id_kategori', 'left')->group_by('k.nama_kategori, k.id_kategori')->get()->result(),
         ];
         $this->template->load('template', 'home', $data);
     }
@@ -70,7 +70,7 @@ class Home extends CI_Controller
     public function artikel($id)
     {
         $data = [
-            'title' => 'Detail | Konten',
+            'title' => 'Detail | Konten ' . $id,
             'kategori' => $this->Kategori_model->getAllKategori(),
             'konten' => $this->Konten_model->details($id),
             'konten2' => $this->Konten_model->getAllKontenview(),

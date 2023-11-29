@@ -21,9 +21,7 @@
                     <h2 id="ask-us-anything-br-or-just-say-hi">Halo semuanya</h2>
                     <p>Bisa mengirim saran, keritikan, atau mau tau lebih lanjut <br> bisa mengirim email atau mengisi form tersebut
                     </p>
-                    <h4 class="mt-5">Hate Forms? Write Us Email</h4>
-                    <p><i class="ti-email mr-2 text-primary"></i><a href="mailto:<?= $konfig->email; ?>"><?= $konfig->email; ?></a>
-                    </p>
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m13!1m8!1m3!1d693.2834489287158!2d110.94357230041105!3d-7.598646891703695!3m2!1i1024!2i768!4f13.1!3m2!1m1!2zN8KwMzUnNTUuNCJTIDExMMKwNTYnMzYuMCJF!5e0!3m2!1sid!2sid!4v1701038097006!5m2!1sid!2sid" width="100%" height="290px" style="border:0;" allowfullscreen loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
                 </div>
             </div>
             <div class="col-md-6">
