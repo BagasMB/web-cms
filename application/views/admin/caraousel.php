@@ -5,7 +5,9 @@
             <div class="col-md-5" id="ngilang">
                 <?= $this->session->flashdata('pesan'); ?>
             </div>
-
+            <div id="flash-data" data-flashdata="<?= $this->session->flashdata('flash'); ?>"></div>
+            <div id="type-error" data-flashdata="<?= $this->session->flashdata('gagal'); ?>"></div>
+            
             <div class="card mb-4">
                 <div class="card-body">
                     <form action="<?= base_url('admin/caraousel/tambah'); ?>" method="post" enctype="multipart/form-data">
@@ -25,10 +27,6 @@
                 </div>
             </div>
 
-
-
-
-
             <div class="row">
                 <?php foreach ($caraousel as $value) : ?>
                     <div class="col-lg-4">
@@ -39,7 +37,7 @@
                             <div class="card-body">
                                 <h5 class="card-title"><?= $value['judul']; ?></h5>
                                 <button type="button" data-toggle="modal" data-target="#modalEdit<?= $value['id_caraousel']; ?>" class="btn btn-sm btn-outline-primary btn-pill">Edit</button>
-                                <a href="<?= base_url('admin/caraousel/hapus/' . $value['foto']); ?>" onclick="return confirm('Yakin nih?')" class="btn btn-sm btn-outline-danger btn-pill">Delete</a>
+                                <a href="<?= base_url('admin/caraousel/hapus/' . $value['foto']); ?>" id="btn-hapus" class="btn btn-sm btn-outline-danger btn-pill">Delete</a>
                             </div>
                         </div>
                     </div>

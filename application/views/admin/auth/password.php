@@ -4,6 +4,8 @@
         <div class="col-md-5" id="ngilang">
             <?= $this->session->flashdata('pesan'); ?>
         </div>
+        <div id="flash-data" data-flashdata="<?= $this->session->flashdata('flash'); ?>"></div>
+        <div id="type-error" data-flashdata="<?= $this->session->flashdata('gagal'); ?>"></div>
 
         <div class="card card-default">
             <div class="card-header">

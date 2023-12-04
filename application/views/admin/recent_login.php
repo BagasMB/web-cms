@@ -51,40 +51,6 @@
                         </div>
                     </div>
                 </div>
-                <!-- <div class="col-12">
-                    <div class="card card-default">
-                        <div class="card-header">
-                            <h5>Table Aktivitas LogOut</h5>
-                        </div>
-                        <div class="card-body table-responsive">
-                            <table id="" class="table" style="width:100%">
-                                <thead>
-                                    <tr>
-                                        <th>No</th>
-                                        <th>Username</th>
-                                        <th>Nama</th>
-                                        <th>Jam</th>
-                                        <th>Tanggal</th>
-                                        <th>Status</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <?php $no = 1;
-                                    foreach ($logout as $ser) : ?>
-                                        <tr>
-                                            <td><?= $no++; ?></td>
-                                            <td><?= $ser['username']; ?></td>
-                                            <td><?= $ser['nama']; ?></td>
-                                            <td><?= $ser['waktu']; ?></td>
-                                            <td><?= $ser['tanggal']; ?></td>
-                                            <td><?= $ser['status']; ?></td>
-                                        </tr>
-                                    <?php endforeach; ?>
-                                </tbody>
-                            </table>
-                        </div>
-                    </div>
-                </div> -->
             </div>
         </div>
     </div>

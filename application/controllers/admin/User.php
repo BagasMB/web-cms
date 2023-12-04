@@ -43,14 +43,14 @@ class User extends CI_Controller
         $username = $this->input->post('username');
         $cek_username = $this->db->where('username', $username)->count_all_results('user');
         if ($this->form_validation->run() == false) {
-            $this->session->set_flashdata('pesan', '<div class="alert alert-danger alert-icon fade show" role="alert"><i class="mdi mdi-alert-circle-outline"></i> Yahh, Semua Field Harus DiIsi!!!</div>');
+            $this->session->set_flashdata('gagal', 'Yahh, Semua Filed Harus DiIsi!!!');
             redirect('admin/user');
         } elseif ($cek_username <> null) {
-            $this->session->set_flashdata('pesan', '<div class="alert alert-danger alert-icon fade show" role="alert"><i class="mdi mdi-alert-circle-outline"></i> Yahh, Username sudah digunakan!!!</div>');
+            $this->session->set_flashdata('gagal', 'Yahh, Username sudah digunakan!!!');
             redirect('admin/user');
         } else {
             $this->User_model->tambahUser();
-            $this->session->set_flashdata('pesan', '<div class="alert alert-success alert-icon fade show" role="alert"><i class="mdi mdi-check-circle-outline"></i> Yeaaaaaaaaaay!!!</div>');
+            $this->session->set_flashdata('flash', 'Yeaaaaaaaaaay!!!');
             redirect('admin/user');
         }
     }
@@ -58,7 +58,7 @@ class User extends CI_Controller
     public function edit()
     {
         $this->User_model->editUser();
-        $this->session->set_flashdata('pesan', '<div class="alert alert-success alert-icon fade show" role="alert"><i class="mdi mdi-check-circle-outline"></i>Gemgeekang Gacorr!!!</div>');
+        $this->session->set_flashdata('flash', 'Gemgeekang Gacorr!!!');
         redirect('admin/user');
     }
 
@@ -66,7 +66,7 @@ class User extends CI_Controller
     {
         $where = array('id_user' => $id);
         $this->db->delete('user', $where);
-        $this->session->set_flashdata('pesan', '<div class="alert alert-danger alert-icon fade show" role="alert"><i class="mdi mdi-trash-can-outline"></i>Kok di hapus si kak!!!</div>');
+        $this->session->set_flashdata('flash', 'Berhasil DiHapus');
         redirect('admin/user');
     }
 }

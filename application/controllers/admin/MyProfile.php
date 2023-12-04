@@ -56,7 +56,7 @@ class MyProfile extends CI_Controller
 
             $this->db->where('id_user', $user_id);
             $this->db->update('user');
-            $this->session->set_flashdata('pesan', '<div class="alert alert-success alert-dismissible fade show" role="alert"><i class="mdi mdi-check-circle-outline"></i> Gemgeekang Gacorr!!!</div>');
+            $this->session->set_flashdata('flash', 'Gemgeekang Gacorr!!!');
             redirect('admin/MyProfile');
         }
     }

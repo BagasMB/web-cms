@@ -112,10 +112,10 @@
                                     <span class="nav-text">User</span>
                                 </a>
                             </li>
-                            <li class="<?php if ($menu == 'Recentlogin') {
+                            <li class="<?php if ($menu == 'RecentLogin') {
                                             echo "active";
                                         } ?>">
-                                <a class="sidenav-item-link" href="<?= base_url('admin/Recentlogin'); ?>">
+                                <a class="sidenav-item-link" href="<?= base_url('admin/RecentLogin'); ?>">
                                     <i class="mdi mdi-chart-bar"></i>
                                     <span class="nav-text">Recent Login</span>
                                 </a>

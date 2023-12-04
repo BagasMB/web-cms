@@ -5,6 +5,8 @@
             <div class="col-md-5" id="ngilang">
                 <?= $this->session->flashdata('pesan'); ?>
             </div>
+            <div id="flash-data" data-flashdata="<?= $this->session->flashdata('flash'); ?>"></div>
+            <div id="type-error" data-flashdata="<?= $this->session->flashdata('gagal'); ?>"></div>
 
             <!-- Table Product -->
             <div class="row">
@@ -12,7 +14,6 @@
                     <div class="card card-default">
                         <div class="card-header">
                             <h5>Table Kategori Konten</h5>
-                            <!-- Form Modal -->
                             <button type="button" class="btn btn-sm btn-info btn-pill" data-toggle="modal" data-target="#ModalTambah">Tambah</button>
                         </div>
                         <div class="card-body table-responsive">
@@ -34,7 +35,7 @@
                                             <td><?= $ser['nama_kategori']; ?></td>
                                             <td colspan="2">
                                                 <button type="button" data-toggle="modal" data-target="#modalEdit<?= $ser['id_kategori']; ?>" class="badge badge-success">Edit</button>
-                                                <a href="<?= base_url('admin/kategori/hapus/' . $ser['id_kategori']); ?>" onclick="return confirm('Yakin nih?')" class="badge badge-danger">Delete</a>
+                                                <a href="<?= base_url('admin/kategori/hapus/' . $ser['id_kategori']); ?>" id="btn-hapus" class="badge badge-danger">Delete</a>
                                             </td>
                                         </tr>
 

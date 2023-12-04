@@ -34,14 +34,14 @@ class Kategori extends CI_Controller
         $kategori = $this->input->post('nama_kategori');
         $cek_kategori = $this->db->where('nama_kategori', $kategori)->count_all_results('kategori');
         if ($this->form_validation->run() == false) {
-            $this->session->set_flashdata('pesan', '<div class="alert alert-danger alert-icon fade show" role="alert"><i class="mdi mdi-alert-circle-outline"></i> Yahh, Semua Field Harus DiIsi!!!</div>');
+            $this->session->set_flashdata('gagal', 'Yahh, Semua Field Harus DiIsi!!!');
             redirect('admin/kategori');
         } elseif ($cek_kategori <> null) {
-            $this->session->set_flashdata('pesan', '<div class="alert alert-danger alert-icon fade show" role="alert"><i class="mdi mdi-alert-circle-outline"></i> Yahh, Kategori Konten sudah digunakan!!!</div>');
+            $this->session->set_flashdata('gagal', 'Yahh, Kategori Konten sudah digunakan!!!');
             redirect('admin/kategori');
         } else {
             $this->Kategori_model->tambahKategori();
-            $this->session->set_flashdata('pesan', '<div class="alert alert-success alert-icon fade show" role="alert"><i class="mdi mdi-check-circle-outline"></i> Yeaaaaaaaaaay!!!</div>');
+            $this->session->set_flashdata('flash', 'Yeaaaaaaaaaay!!!');
             redirect('admin/kategori');
         }
     }
@@ -49,7 +49,7 @@ class Kategori extends CI_Controller
     public function edit()
     {
         $this->Kategori_model->editKategori();
-        $this->session->set_flashdata('pesan', '<div class="alert alert-success alert-icon fade show" role="alert"><i class="mdi mdi-check-circle-outline"></i>Gemgeekang Gacorr!!!</div>');
+        $this->session->set_flashdata('flash', 'Gemgeekang Gacorr!!!');
         redirect('admin/kategori');
     }
 
@@ -57,7 +57,7 @@ class Kategori extends CI_Controller
     {
         $where = array('id_kategori' => $id);
         $this->db->delete('kategori', $where);
-        $this->session->set_flashdata('pesan', '<div class="alert alert-danger alert-icon fade show" role="alert"><i class="mdi mdi-trash-can-outline"></i>Kok di hapus si kak!!!</div>');
+        $this->session->set_flashdata('flash', 'Berhasil DiHapus!!!');
         redirect('admin/kategori');
     }
 }

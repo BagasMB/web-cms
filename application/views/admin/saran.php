@@ -3,7 +3,10 @@
         ===================================== -->
     <div class="content-wrapper">
         <div class="content">
-
+            <div class="col-md-5" id="ngilang">
+                <?= $this->session->flashdata('pesan'); ?>
+            </div>
+            <div id="type-error" data-flashdata="<?= $this->session->flashdata('gagal'); ?>"></div>
 
             <!-- Table Product -->
             <div class="row">

@@ -41,7 +41,7 @@ class Konfigurasi extends CI_Controller
             'no_wa' => $this->input->post('no_wa'),
         ];
         $this->db->update('konfigurasi', $data, $where);
-        $this->session->set_flashdata('pesan', '<div class="alert alert-success alert-icon fade show" role="alert"><i class="mdi mdi-check-circle-outline"></i> Yeaaaaaaaaaay!!!</div>');
+        $this->session->set_flashdata('flash', 'Gemgeekang Gacorr!!!');
         redirect('admin/konfigurasi');
     }
 }

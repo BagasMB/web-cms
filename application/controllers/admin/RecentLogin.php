@@ -16,12 +16,8 @@ class RecentLogin extends CI_Controller
     }
     public function index()
     {
-            // $login = $this->db->from('recent_login')->join('user', 'recent_login.username = user.username')->limit(5)->order_by('id_recent DESC')->get_where('', array('status' => 'Login'))->result_array();
-            // $logout = $this->db->from('recent_login')->join('user', 'recent_login.username = user.username')->limit(5)->order_by('id_recent DESC')->get_where('', array('status' => 'Logout'))->result_array();
         $data = [
             'title' => 'Aktivitas Login',
-            // 'login' => $login,
-            // 'logout' => $logout,
             'recent_login' => $this->db->from('recent_login')->join('user', 'recent_login.username = user.username')->limit(5)->order_by('id_recent DESC')->get()->result_array(),
             'user' => $this->db->get_where('user', ['username' => $this->session->userdata('username')])->row_array(),
         ];

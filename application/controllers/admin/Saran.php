@@ -27,6 +27,7 @@ class Saran extends CI_Controller
     {
         $id = $this->input->post('id');
         $this->db->where_in('id_saran', $id)->delete('saran');
+        $this->session->set_flashdata('pesan', '<div class="alert alert-danger alert-icon fade show" role="alert"><i class="mdi mdi-trash-can-outline"></i>Kok di hapus si kak!!!</div>');
         redirect('admin/saran');
     }
 }

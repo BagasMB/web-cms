@@ -5,6 +5,8 @@
             <div class="col-md-5" id="ngilang">
                 <?= $this->session->flashdata('pesan'); ?>
             </div>
+            <div id="flash-data" data-flashdata="<?= $this->session->flashdata('flash'); ?>"></div>
+            <div id="type-error" data-flashdata="<?= $this->session->flashdata('gagal'); ?>"></div>
 
             <!-- Table Product -->
             <div class="row">
@@ -39,7 +41,7 @@
                                             <td>
                                                 <button type="button" data-toggle="modal" data-target="#modalEdit<?= $ser['id_user']; ?>" class="badge badge-success">Edit</button>
                                                 <?php if ($user['username'] != $ser['username']) : ?>
-                                                    <a href="<?= base_url('admin/user/hapus/' . $ser['id_user']); ?>" onclick="return confirm('Yakin nih?')" class="badge badge-danger">Delete</a>
+                                                    <a href="<?= base_url('admin/user/hapus/' . $ser['id_user']); ?>" id="btn-hapus" class="badge badge-danger">Delete</a>
                                                 <?php endif; ?>
                                             </td>
                                         </tr>

@@ -42,17 +42,17 @@ class Password extends CI_Controller
             $password_lama = $this->input->post('password_lama');
             $password_baru = $this->input->post('password_baru1');
             if ($password_lama != $data['user']['password']) {
-                $this->session->set_flashdata('pesan', '<div class="alert alert-danger alert-icon fade show" role="alert"><i class="mdi mdi-alert-circle-outline"></i> Password Lama Anda Salah!!!</div>');
+                $this->session->set_flashdata('gagal', 'Password Lama Anda Salah!!!');
                 redirect('admin/Password');
             } else {
                 if ($password_lama == $password_baru) {
-                    $this->session->set_flashdata('pesan', '<div class="alert alert-danger alert-icon fade show" role="alert"><i class="mdi mdi-alert-circle-outline"></i> Password Baru Sama Dengan Password Lama!!!</div>');
+                    $this->session->set_flashdata('gagal', 'Password Baru Sama Dengan Password Lama!!!');
                     redirect('admin/Password');
                 } else {
                     $this->db->set('password', $password_baru);
                     $this->db->where('id_user', $id_user);
                     $this->db->update('user');
-                    $this->session->set_flashdata('pesan', '<div class="alert alert-success alert-icon fade show" role="alert"><i class="mdi mdi-check-circle-outline"></i> Yeaaaaaaaaaay, Password berhasil diubah!!!</div>');
+                    $this->session->set_flashdata('flash', 'Yeaaaaaaaaaay, Password berhasil diubah!!!');
                     redirect('admin/Password');
                 }
             }

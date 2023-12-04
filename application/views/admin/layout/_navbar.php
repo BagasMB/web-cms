@@ -14,11 +14,6 @@
             <div class="navbar-right ">
 
                 <ul class="nav navbar-nav">
-                    <!-- Offcanvas -->
-                    <!-- <li class="custom-dropdown">
-                                <a class="offcanvas-toggler active custom-dropdown-toggler" data-offcanvas="contact-off" href="javascript:">
-                                    <i class="mdi mdi-contacts icon"></i>
-                                </a> -->
                     </li>
                     <!-- User Account -->
                     <li class="dropdown user-menu">
@@ -28,13 +23,13 @@
                         </button>
                         <ul class="dropdown-menu dropdown-menu-right">
                             <li>
-                                <a class="dropdown-link-item" href="<?= base_url('admin/myprofile'); ?>">
+                                <a class="dropdown-link-item" href="<?= base_url('admin/MyProfile'); ?>">
                                     <i class="mdi mdi-account-outline"></i>
                                     <span class="nav-text">My Profile</span>
                                 </a>
                             </li>
                             <li>
-                                <a class="dropdown-link-item" href="<?= base_url('admin/password'); ?>">
+                                <a class="dropdown-link-item" href="<?= base_url('admin/Password'); ?>">
                                     <i class="mdi mdi-lock-outline"></i>
                                     <span class="nav-text">Password</span>
                                 </a>

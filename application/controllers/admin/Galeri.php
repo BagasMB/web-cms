@@ -34,10 +34,10 @@ class Galeri extends CI_Controller
         $galeri = $this->input->post('judul');
         $cek_galeri = $this->db->where('judul', $galeri)->count_all_results('galeri');
         if ($this->form_validation->run() == false) {
-            $this->session->set_flashdata('pesan', '<div class="alert alert-danger alert-icon fade show" role="alert"><i class="mdi mdi-alert-circle-outline"></i> Yahh, Semua Field Harus DiIsi!!!</div>');
+            $this->session->set_flashdata('gagal', 'Yahh, Semua Field Harus DiIsi!!!');
             redirect('admin/galeri');
         } elseif ($cek_galeri <> null) {
-            $this->session->set_flashdata('pesan', '<div class="alert alert-danger alert-icon fade show" role="alert"><i class="mdi mdi-alert-circle-outline"></i> Yahh, Judul Galeri sudah digunakan!!!</div>');
+            $this->session->set_flashdata('gagal', 'Yahh, Judul Galeri sudah digunakan!!!');
             redirect('admin/galeri');
         } else {
             $namaFoto = date('YmdHis') . '.jpg';
@@ -51,7 +51,7 @@ class Galeri extends CI_Controller
             } else {
                 $data = array('upload_data' => $this->upload->data());
                 $this->Galeri_model->tambahGaleri($namaFoto);
-                $this->session->set_flashdata('pesan', '<div class="alert alert-success alert-icon fade show" role="alert"><i class="mdi mdi-check-circle-outline"></i> Yeaaaaaaaaaay!!!</div>');
+                $this->session->set_flashdata('flash', 'Yeaaaaaaaaaay!!!');
                 redirect('admin/galeri');
             }
         }
@@ -63,7 +63,7 @@ class Galeri extends CI_Controller
             'required' => 'Judul Tidak Boleh Kosong'
         ]);
         if ($this->form_validation->run() == false) {
-            $this->session->set_flashdata('pesan', '<div class="alert alert-danger alert-icon fade show" role="alert"><i class="mdi mdi-alert-circle-outline"></i> Yahh, Semua Field Harus DiIsi!!!</div>');
+            $this->session->set_flashdata('gagal', 'Yahh, Semua Field Harus DiIsi!!!');
             redirect('admin/galeri');
         } else {
             $namaFoto = $this->input->post('nama_foto');
@@ -76,12 +76,12 @@ class Galeri extends CI_Controller
             if (!$this->upload->do_upload('foto')) {
                 $error = array('error', $this->upload->display_errors());
                 $this->Galeri_model->editGaleri($namaFoto);
-                $this->session->set_flashdata('pesan', '<div class="alert alert-success alert-icon fade show" role="alert"><i class="mdi mdi-check-circle-outline"></i> GacorrKang!!!</div>');
+                $this->session->set_flashdata('flash', 'Gemgeekang Gacorr!!!');
                 redirect('admin/galeri');
             } else {
                 $data = array('upload_data' => $this->upload->data());
                 $this->Galeri_model->editGaleri($namaFoto);
-                $this->session->set_flashdata('pesan', '<div class="alert alert-success alert-icon fade show" role="alert"><i class="mdi mdi-check-circle-outline"></i> GacorrKang!!!</div>');
+                $this->session->set_flashdata('flash', 'Gemgeekang Gacorr!!!');
                 redirect('admin/galeri');
             }
         }
@@ -95,7 +95,7 @@ class Galeri extends CI_Controller
         }
         $where = array('foto' => $namefoto);
         $this->db->delete('galeri', $where);
-        $this->session->set_flashdata('pesan', '<div class="alert alert-danger alert-icon fade show" role="alert"><i class="mdi mdi-trash-can-outline"></i>Kok di hapus si kak!!!</div>');
+        $this->session->set_flashdata('flash', 'Berhasil DiHapus!!!');
         redirect('admin/galeri');
     }
 }
