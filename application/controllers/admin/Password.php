@@ -39,8 +39,8 @@ class Password extends CI_Controller
             $this->load->view('admin/layout/_footer');
         } else {
             $id_user = $this->input->post('id_user');
-            $password_lama = $this->input->post('password_lama');
-            $password_baru = $this->input->post('password_baru1');
+            $password_lama = md5($this->input->post('password_lama'));
+            $password_baru = md5($this->input->post('password_baru1'));
             if ($password_lama != $data['user']['password']) {
                 $this->session->set_flashdata('gagal', 'Password Lama Anda Salah!!!');
                 redirect('admin/Password');

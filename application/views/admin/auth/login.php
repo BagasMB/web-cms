@@ -66,7 +66,7 @@
                                         <input type="text" class="form-control input-lg" id="username" placeholder="Username" value="<?= set_value('username') ?>" name="username" autocomplete="off">
                                         <?= form_error('username', '<small class="text-danger pl-3">', '</small>'); ?>
                                     </div>
-                                    <div class="form-group col-md-12 ">
+                                    <div class="form-group col-md-12">
                                         <input type="password" class="form-control input-lg" id="password" placeholder="Password" name="password" autocomplete="off">
                                         <?= form_error('password', '<small class="text-danger pl-3">', '</small>'); ?>
                                     </div>

@@ -11,12 +11,15 @@ class User_model extends CI_Model
 
     public function tambahUser()
     {
+        date_default_timezone_set('Asia/Jakarta');
         $data = array(
             'username'  => htmlspecialchars($this->input->post('username')),
-            'password'  => htmlspecialchars($this->input->post('password')),
+            'password'  => md5(htmlspecialchars($this->input->post('password'))),
             'image'     => 'default.png',
             'nama'      => htmlspecialchars($this->input->post('nama')),
+            'email'     => htmlspecialchars($this->input->post('email')),
             'level'     => $this->input->post('level'),
+            'recent_login' => date('Y-m-d H:i:s'),
         );
         $this->db->insert('user', $data);
     }

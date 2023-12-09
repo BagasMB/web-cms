@@ -29,24 +29,29 @@ class Auth extends CI_Controller
     private function _login()
     {
         $username = htmlspecialchars($this->input->post('username', true));
-        $password = $this->input->post('password', true);
+        $password = md5($this->input->post('password', true));
 
         $user = $this->db->get_where('user', ['username' => $username])->row_array();
 
         if ($user) {
             if ($password == $user['password']) {
                 $data = [
+                    'id_user' => $user['id_user'],
                     'username' => $user['username'],
-                    'level' => $user['level']
+                    'level' => $user['level'],
                 ];
-                $this->session->set_userdata($data);
+                date_default_timezone_set('Asia/Jakarta');
+                $this->db->set('recent_login', date('Y-m-d H:i:s'));
+                $this->db->where('id_user', $user['id_user']);
+                $this->db->update('user');
                 $recent = [
                     'username' => $user['username'],
-                    // 'waktu' => date('h:i:s'),
+                    'waktu' => date('H:i:s'),
                     'tanggal' => date('Y-m-d'),
                     'status' => 'Login'
                 ];
                 $this->db->insert('recent_login', $recent);
+                $this->session->set_userdata($data);
                 redirect('admin/home');
             } else {
                 $this->session->set_flashdata('message', '<div class="alert alert-danger alert-icon fade show" role="alert"><i class="mdi mdi-alert-circle-outline"></i>Password anda salah! </div>');
@@ -61,13 +66,12 @@ class Auth extends CI_Controller
 
     public function logout()
     {
-        // $this->session->unset_userdata('username');
-        // $this->session->unset_userdata('level');
         $user = $this->db->get_where('user', ['username' => $this->session->userdata('username')])->row_array();
         $this->session->sess_destroy();
+        date_default_timezone_set('Asia/Jakarta');
         $recent = [
             'username' => $user['username'],
-            // 'waktu' => date('h:i:s'),
+            'waktu' => date('H:i:s'),
             'tanggal' => date('Y-m-d'),
             'status' => 'Logout'
         ];

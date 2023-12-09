@@ -26,6 +26,7 @@
                                         <th>Username</th>
                                         <th>Nama</th>
                                         <th>Level</th>
+                                        <th>Terakhir Login</th>
                                         <th>Action</th>
                                     </tr>
                                 </thead>
@@ -38,6 +39,22 @@
                                             <td><?= $ser['username']; ?></td>
                                             <td><?= $ser['nama']; ?></td>
                                             <td><?= $ser['level']; ?></td>
+                                            <?php
+                                            date_default_timezone_set('Asia/Jakarta');
+                                            $recent_login = $ser['recent_login'];
+                                            $tgl1 = new DateTime($recent_login);
+                                            $tgl2 = new DateTime();
+                                            $jarak = $tgl2->diff($tgl1);
+                                            ?>
+                                            <td>
+                                                <?php if ($jarak->days > 0) {
+                                                    echo $jarak->days . ' hari yang lalu';
+                                                } elseif ($jarak->h > 0) {
+                                                    echo $jarak->h .  ' jam yang lalu';
+                                                } elseif ($jarak->m >= 0) {
+                                                    echo $jarak->i .  ' menit yang lalu';
+                                                }  ?>
+                                            </td>
                                             <td>
                                                 <button type="button" data-toggle="modal" data-target="#modalEdit<?= $ser['id_user']; ?>" class="badge badge-success">Edit</button>
                                                 <?php if ($user['username'] != $ser['username']) : ?>

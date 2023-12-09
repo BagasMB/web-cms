@@ -6,20 +6,32 @@
 
         <div class="card card-default">
             <div class="card-header">
-                <h2 class="mb-5">Profile Settings</h2>
+                <h2 class="mb-2">Profile Settings</h2>
             </div>
 
             <div class="card-body">
                 <form action="<?= base_url('admin/MyProfile'); ?>" method="post" enctype="multipart/form-data">
                     <input type="hidden" name="id_user" value="<?= $user['id_user'] ?>">
-                    <div class="form-group row mb-5">
+                    <div class="form-group row mb-2">
+                        <label for="com-name" class="col-sm-4 col-lg-2 col-form-label">Username</label>
+                        <div class="col-sm-8 col-lg-8">
+                            <input type="text" class="form-control" name="username" value="<?= $user['username']; ?>" readonly>
+                        </div>
+                    </div>
+                    <div class="form-group row mb-2">
                         <label for="com-name" class="col-sm-4 col-lg-2 col-form-label">Nama</label>
                         <div class="col-sm-8 col-lg-8">
                             <input type="text" class="form-control" name="nama" value="<?= $user['nama']; ?>" autocomplete="off">
                         </div>
                     </div>
+                    <div class="form-group row mb-2">
+                        <label for="com-name" class="col-sm-4 col-lg-2 col-form-label">Terakhir Kali Login</label>
+                        <div class="col-sm-8 col-lg-8">
+                            <input type="text" class="form-control" name="recent_login" value="<?= $user['recent_login']; ?>" readonly>
+                        </div>
+                    </div>
 
-                    <div class="form-group row mb-6">
+                    <div class="form-group row mb-5">
                         <label for="coverImage" class="col-sm-4 col-lg-2 col-form-label">Cover Image</label>
                         <div class="col-sm-8 col-lg-6">
                             <div class="custom-file mb-1">

@@ -5,6 +5,7 @@ class Galeri_model extends CI_Model
 {
     public function tambahGaleri($namaFoto)
     {
+        date_default_timezone_set('Asia/Jakarta');
         $data = array(
             'judul' => $this->input->post('judul'),
             'tanggal' => date('Y-m-d'),
